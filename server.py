@@ -3,6 +3,18 @@ from pydantic import BaseModel
 import sqlite3
 import base64
 from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
+
+
+# Allow CORS for specific origins (replace with your frontend URL if needed)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # This allows all origins; you can replace '*' with specific domains if needed
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
+
 
 app = FastAPI()
 
